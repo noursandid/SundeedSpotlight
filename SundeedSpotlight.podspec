@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'SundeedSpotlight'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.license = 'MIT'
   s.summary = 'An easily implemented spotlight library to walk the user through the features'
   s.homepage = 'https://github.com/noursandid/SundeedSpotlight/'
