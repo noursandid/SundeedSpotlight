@@ -3,7 +3,7 @@
 # SundeedSpotlight
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SundeedSpotlight.svg)](https://cocoapods.org/pods/SundeedSpotlight) [![Platform](https://img.shields.io/cocoapods/p/SundeedSpotlight.svg?style=flat)](https://noursandid.github.io/SundeedSpotlight) [![License](https://img.shields.io/cocoapods/l/MarkdownKit.svg?style=flat)](http://cocoapods.org/pods/SundeedSpotlight) [![Language](https://img.shields.io/badge/Language-Swift-brightgreen)](https://github.com/apple/swift) [![Last Commit](https://img.shields.io/github/last-commit/noursandid/SundeedSpotlight?style=flat)](https://github.com/noursandid/SundeedSpotlight) [![HitCount](http://hits.dwyl.com/noursandid/SundeedSpotlight.svg?style=flat)](http://hits.dwyl.com/noursandid/SundeedSpotlight)
 
-![Example1](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example1.gif)![Example2](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example2.gif)![Example3](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example3.gif)![Example4](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example4.gif)
+![Example1](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example1.gif)![Example2](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example2.gif)![Example3](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example3.gif)![Example4](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example4.gif)![Example5](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example5.gif)
 
 ##### SundeedSpotlight is an easily implemented spotlight library to walk the user through the features
 # Requirements
@@ -147,6 +147,9 @@ class WalkthroughCustomView: UIView, CustomWalkthroughInfoView {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    //manager variable is optional, you only need to add it if you wish to have a "Next" or "Skip" buttons and to control the flow manually.
+    var manager: SpotlightInfoViewManager? = InfoViewManager()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -182,6 +185,13 @@ class WalkthroughCustomView: UIView, CustomWalkthroughInfoView {
     }
     func walkthroughDidContinue(for identifier: String) {
         print("api responded and the flow continued")
+    }
+    @IBAction func skipButtonPressed(_ sender: Any) {
+        self.manager?.skip()
+    }
+    
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        self.manager?.next()
     }
 }
 ```

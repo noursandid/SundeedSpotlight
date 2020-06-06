@@ -128,6 +128,7 @@ open class SundeedSpotlight: HighlightingView {
     @discardableResult
     public func withCustomInfoView(_ view: CustomSpotlightInfoView) -> Self {
         infoView.embed(view)
+        (view.manager as? InfoViewManager)?.delegate = self
         return self
     }
     
@@ -141,6 +142,15 @@ open class SundeedSpotlight: HighlightingView {
     public func withInfoCornerRadius(_ cornerRadius: CGFloat) -> Self {
         self.infoView.cornerRadius = cornerRadius
         return self
+    }
+}
+
+extension SundeedSpotlight: SpotLightInfoViewManagerDelegate {
+    func didPressNext() {
+        self.next()
+    }
+    func didPressSkip() {
+        self.stop()
     }
 }
 

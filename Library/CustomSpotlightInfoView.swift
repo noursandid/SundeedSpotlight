@@ -8,7 +8,26 @@
 
 import UIKit
 
+public protocol SpotlightInfoViewManager {
+    func next()
+    func skip()
+}
+protocol SpotLightInfoViewManagerDelegate {
+    func didPressNext()
+    func didPressSkip()
+}
+public class InfoViewManager: SpotlightInfoViewManager {
+    var delegate: SpotLightInfoViewManagerDelegate?
+    public func next() {
+        delegate?.didPressNext()
+    }
+    public func skip() {
+        self.delegate?.didPressSkip()
+    }
+}
+
 public protocol CustomSpotlightInfoView: UIView {
+    var manager: SpotlightInfoViewManager? { get }
     func walkthroughDidMoveToItem(at index: Int,
                                   withInfo info: String?,
                                   withUserInfo userInfo: [String: Any?])
@@ -18,9 +37,10 @@ public protocol CustomSpotlightInfoView: UIView {
     func walkthroughDoneWaitingForInsertion()
 }
 extension CustomSpotlightInfoView {
-     func walkthroughDidMoveToItem(at index: Int,
-                                   withInfo info: String?,
-                                   withUserInfo userInfo: [String : Any?]) {}
+    var manager: SpotlightInfoViewManager? { nil }
+    func walkthroughDidMoveToItem(at index: Int,
+                                  withInfo info: String?,
+                                  withUserInfo userInfo: [String : Any?]) {}
     func walkthroughIsWaiting(for identifier: String) {}
     func walkthroughDidContinue(for identifier: String) {}
     func walkthroughIsWaitingForInsertion() {}
