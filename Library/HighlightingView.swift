@@ -123,7 +123,12 @@ open class HighlightingView: UIView {
                 .convert(highlightedView.frame, to: self)
             else {
                 if passThrough {
-                    return nil
+                    if case .wait = self.currentAction,
+                        hitTestTimeStamp != event?.timestamp {
+                        return hitView
+                    } else {
+                        return nil
+                    }
                 } else {
                     return hitView
                 }
