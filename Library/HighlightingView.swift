@@ -187,17 +187,19 @@ open class HighlightingView: UIView {
         self.actionsToBeAdded = []
         self.insertedAtIndex = self.actions.count
         if self.superview == nil {
-            guard let window = UIApplication.shared.windows.last
-                else { return self }
-            self.translatesAutoresizingMaskIntoConstraints = false
-            window.addSubview(self)
-            NSLayoutConstraint.activate([
-                self.leadingAnchor.constraint(equalTo: window.leadingAnchor),
-                self.trailingAnchor.constraint(equalTo: window.trailingAnchor),
-                self.topAnchor.constraint(equalTo: window.topAnchor),
-                self.bottomAnchor.constraint(equalTo: window.bottomAnchor)
-            ])
-            next()
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                guard let window = UIApplication.shared.windows.last
+                    else { return }
+                self.translatesAutoresizingMaskIntoConstraints = false
+                window.addSubview(self)
+                NSLayoutConstraint.activate([
+                    self.leadingAnchor.constraint(equalTo: window.leadingAnchor),
+                    self.trailingAnchor.constraint(equalTo: window.trailingAnchor),
+                    self.topAnchor.constraint(equalTo: window.topAnchor),
+                    self.bottomAnchor.constraint(equalTo: window.bottomAnchor)
+                ])
+                self.next()
+            }
         } else {
             remask()
         }
