@@ -3,7 +3,7 @@
 # SundeedSpotlight
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SundeedSpotlight.svg)](https://cocoapods.org/pods/SundeedSpotlight) [![Platform](https://img.shields.io/cocoapods/p/SundeedSpotlight.svg?style=flat)](https://noursandid.github.io/SundeedSpotlight) [![License](https://img.shields.io/cocoapods/l/MarkdownKit.svg?style=flat)](http://cocoapods.org/pods/SundeedSpotlight) [![Language](https://img.shields.io/badge/Language-Swift-brightgreen)](https://github.com/apple/swift) [![Last Commit](https://img.shields.io/github/last-commit/noursandid/SundeedSpotlight?style=flat)](https://github.com/noursandid/SundeedSpotlight) [![HitCount](http://hits.dwyl.com/noursandid/SundeedSpotlight.svg?style=flat)](http://hits.dwyl.com/noursandid/SundeedSpotlight)
 
-![Example1](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example1.gif)
+![Example1](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example1.gif)![Example2](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example2.gif)![Example3](https://raw.githubusercontent.com/noursandid/SundeedSpotlight/master/gifs/Example3.gif)
 
 ##### SundeedSpotlight is an easily implemented spotlight library to walk the user through the features
 # Requirements
